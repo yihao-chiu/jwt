@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/golang-jwt/jwt/v5"
+	"github.com/yihao-chiu/jwt/v5"
 )
 
 func TestNumericDate(t *testing.T) {

@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/golang-jwt/jwt/v5"
+	"github.com/yihao-chiu/jwt/v5"
 )
 
 // Example (atypical) using the RegisteredClaims type by itself to parse a token.

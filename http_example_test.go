@@ -15,8 +15,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/golang-jwt/jwt/v5"
-	"github.com/golang-jwt/jwt/v5/request"
+	"github.com/yihao-chiu/jwt/v5"
+	"github.com/yihao-chiu/jwt/v5/request"
 )
 
 // location of the files used for signing and verification
