@@ -15,6 +15,7 @@ var (
 // SigningMethodDilithium implements the Dilithium family.
 // Expects dilithium.PrivateKey for signing and dilithium.PublicKey for verification
 type SigningMethodDilithium struct {
+	Name string
 	Mode dilithium.Mode
 }
 
@@ -26,22 +27,22 @@ var (
 )
 
 func init() {
-	SigningMethodDilithium2 = &SigningMethodDilithium{dilithium.Mode2}
+	SigningMethodDilithium2 = &SigningMethodDilithium{"CRYDI2", dilithium.Mode2}
 	RegisterSigningMethod(SigningMethodDilithium2.Alg(), func() SigningMethod {
 		return SigningMethodDilithium2
 	})
-	SigningMethodDilithium3 = &SigningMethodDilithium{dilithium.Mode3}
+	SigningMethodDilithium3 = &SigningMethodDilithium{"CRYDI3", dilithium.Mode3}
 	RegisterSigningMethod(SigningMethodDilithium3.Alg(), func() SigningMethod {
 		return SigningMethodDilithium3
 	})
-	SigningMethodDilithium5 = &SigningMethodDilithium{dilithium.Mode5}
+	SigningMethodDilithium5 = &SigningMethodDilithium{"CRYDI5", dilithium.Mode5}
 	RegisterSigningMethod(SigningMethodDilithium5.Alg(), func() SigningMethod {
 		return SigningMethodDilithium5
 	})
 }
 
 func (m *SigningMethodDilithium) Alg() string {
-	return m.Mode.Name()
+	return m.Name
 }
 
 // Verify implements token verification for the SigningMethod.
