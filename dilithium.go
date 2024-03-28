@@ -76,6 +76,10 @@ func (m *SigningMethodDilithium) Sign(signingString string, key interface{}) ([]
 		return nil, newError("Dilithium sign expects crypto.Signer", ErrInvalidKeyType)
 	}
 
+	if privateKey, ok := key.(dilithium.PrivateKey); !ok || len(privateKey.Bytes()) != m.Mode.PrivateKeySize() {
+		return nil, newError("Dilithium sign expects valid dilithium.PrivateKey", ErrInvalidKeyType)
+	}
+
 	if _, ok := dilithiumKey.Public().(dilithium.PublicKey); !ok {
 		return nil, ErrInvalidKey
 	}
